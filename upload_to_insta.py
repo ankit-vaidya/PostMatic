@@ -5,6 +5,7 @@ caption = "Your desired caption"
 video_path = "Input_Video\chunk_3.mp4"
 
 import requests
+import os
 
 def get_long_lived_token(short_lived_token, app_id, app_secret):
     url = f"https://graph.facebook.com/oauth/access_token"
@@ -16,10 +17,6 @@ def get_long_lived_token(short_lived_token, app_id, app_secret):
     }
     response = requests.get(url, params=params)
     return response.json()
-
-
-import requests
-import os
 
 def upload_video_to_instagram(access_token, instagram_account_id, video_path, caption):
     video_url = 'https://graph.facebook.com/v16.0/{instagram_account_id}/media'.format(instagram_account_id=instagram_account_id)
